@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap');
+
+/* font-family: 'Bebas Neue', cursive;
+font-family: 'Roboto', sans-serif; */
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(0, 0, 0);
+}
+
+.locandina-img{
+    height:25vw;
+    width: auto;
+}
+
+.menu{
+    margin: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    font-size: larger;
+    color: rgb(180, 180, 180);
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.menu:hover{
+    background-color:rgb(180, 180, 180);
+    color:  rgb(0, 0, 0);
+}
+
+
+.vote-btn{
+    color: rgb(180, 180, 180);
+    background-color: transparent;
+    border-width: 0px 0px 1px 1px;
+    padding: 0px;
+    margin: 5px;
+    font-weight: bolder;
+    font-family: 'Bebas Neue', cursive;
+    width: 40%;
+    height: 10%;
+    font-size: larger;
+    border-radius: 8px;
+}
+
+.button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.collection-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    justify-content: flex-start;
+}
+
+.collection-list>section{
+    width: fit-content;
+    margin: 20px;
+    padding: 5px;
+    color: rgb(180, 180, 180);
+    font-family: 'Roboto', sans-serif;
+}
