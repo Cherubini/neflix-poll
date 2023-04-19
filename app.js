@@ -14,7 +14,39 @@ function fillFilmArrayFromServer(data) {
     }
 }
 
-function displayCollection() {
+function displayCollectionBrutta() {
+
+    const container = document.getElementById('collection-list');
+    displayButton();
+    container.innerHTML = '';
+    for (let i = 0; i < superCollection.seriesArray.length; i++) {
+        const serie = superCollection.seriesArray[i];
+        container.innerHTML+= 
+        `
+            <div>
+                <img class="serie-img" src="${serie.imageUrl}" alt="${serie.getTitle}">
+                <div>
+                    <span class="serie-title">${serie.getTitle}</span>
+                    <div>
+                        <span>Created by ${serie.getCreator}</span>
+                        <span>Seasons: ${serie.getSeasons}</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class = "button-container">
+                    <button> Up </button>
+                    <span>${serie.getUpVotes}</span>
+                    <button> Down </button>
+                    <span>${serie.getDownVotes}</span>
+                </div>
+            </div>
+        `
+    }    
+    
+}
+
+function displayCollection () {
     const superCollectionDiv = document.getElementById('collection-list');
     superCollectionDiv.innerHTML = '';
     superCollectionDiv.classList.add('collection-list');
@@ -137,6 +169,7 @@ function createInfo(serie) {
     spanInfo.innerHTML=infoNode;
     return spanInfo;
 }
+<<<<<<< HEAD
 
 console.log('esercizio, id riunioni meet');
 
@@ -170,3 +203,8 @@ testRegex(domainPattern, '.page.it'); //false
 testRegex(domainPattern, 'www.my-life-sucks.it'); //false
 
 
+=======
+function longest(s1, s2) {
+    let longest= s1>s2?s1:s2;
+  }
+>>>>>>> 5b099edc412896cd8c0a9bebd2976fa4f2aaf107
