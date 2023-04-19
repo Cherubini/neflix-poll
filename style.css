@@ -68,3 +68,30 @@ body{
     color: rgb(180, 180, 180);
     font-family: 'Roboto', sans-serif;
 }
+
+/* ******************* */
+
+.serie-data{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.serie-img{
+    width:50%;
+    height: 50%;
+    object-fit: contain;
+}
+
+.serie-title{
+    font-weight: bolder;
+}
+
+span{
+    color: aliceblue;
+}
+
+button-container{
+    gap: 32px;
+    display: flex;
+}
