@@ -169,7 +169,6 @@ function createInfo(serie) {
     spanInfo.innerHTML=infoNode;
     return spanInfo;
 }
-<<<<<<< HEAD
 
 console.log('esercizio, id riunioni meet');
 
@@ -203,8 +202,3 @@ testRegex(domainPattern, '.page.it'); //false
 testRegex(domainPattern, 'www.my-life-sucks.it'); //false
 
 
-=======
-function longest(s1, s2) {
-    let longest= s1>s2?s1:s2;
-  }
->>>>>>> 5b099edc412896cd8c0a9bebd2976fa4f2aaf107
