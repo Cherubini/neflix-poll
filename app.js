@@ -191,11 +191,18 @@ function createInfo(serie) {
 function saveNewSerie() {
     const titleInput = document.getElementById('title-input');
     const creatorInput = document.getElementById('creator-input');
+    const seasonsInput = document.getElementById('seasons-input');
+    const isCompletedInput = document.getElementById('isCompleted-input');
+    const urlImageInput = document.getElementById('urlImage-input');
 
     const newSerieTitle = titleInput.value;
     const newSerieCreator = creatorInput.value;
+    const newSerieSeasons = seasonsInput.value;
+    const newSerieCompleted = isCompletedInput.checked;
+    const newSerieurlImage = urlImageInput.value;
 
-    const newSerie = new Serie(newSerieTitle, newSerieCreator);
+
+    const newSerie = new Serie(newSerieTitle, newSerieCreator,newSerieSeasons,newSerieCompleted, 0, 0,newSerieurlImage);
 
     startLoading();
     DataService.postSerie(newSerie).then(savedSerie => {
@@ -213,7 +220,6 @@ function saveNewSerie() {
 function displayErrorMessage(error) {
     const errorMessage = document.getElementById('error-message')
     const errorNode = error;
-
     errorMessage.appendChild(errorNode);
 }
 
