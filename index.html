@@ -26,17 +26,27 @@
             
         </div>
     </div>
-    <div>
-        <span>insert Title</span>
-        <input type="text" name="" id="title-input">
-        <span>insert Creator</span>
-        <input type="text" name="" id="creator-input">
-        <span>insert seasons</span>
-        <input type="number" name="" id="seasons-input">
-        <span>Series completed</span>
-        <input type="checkbox" name="" id="isCompleted-input">
-        <span>Url locandina</span>
-        <input type="url" name="" id="urlImage-input">
+    <div class="insert-container">
+        <div class="input-container">
+            <span>insert Title</span>
+            <input type="text" name="" id="title-input">
+        </div>
+        <div class="input-container">
+            <span>insert Creator</span>
+            <input type="text" name="" id="creator-input">
+        </div>
+        <div class="input-container">
+            <span>insert seasons</span>
+            <input type="number" name="" id="seasons-input">
+        </div>
+        <div class="input-container">
+            <span>Series completed</span>
+            <input type="checkbox" name="" id="isCompleted-input">
+        </div>
+        <div class="input-container">
+            <span>Url locandina</span>
+            <input type="url" name="" id="urlImage-input">
+        </div>
 
         <button class="save" onclick="saveNewSerie()">Save</button>
     </div>
@@ -49,3 +59,100 @@
 </html>
 
 <!-- https://643693e63e4d2b4a12d60917.mockapi.io/:endpoint -->
+
+<!-- [
+ {
+  "title": "the good doctor",
+  "creator": "david shore",
+  "seasons": 5,
+  "isCompleted": true,
+  "upVotes": 3,
+  "downVotes": 0,
+  "imageUrl": "./assets/thegooddoctor.jpg",
+  "id": "1",
+  "creationDate": null,
+  "increaseUpvote": 3
+ },
+ {
+  "title": "xfiles",
+  "creator": "Chris Carter",
+  "seasons": 11,
+  "isCompleted": true,
+  "upVotes": 13,
+  "downVotes": 57,
+  "imageUrl": "./assets/xfiles.jpg",
+  "id": "2",
+  "creationDate": null
+ },
+ {
+  "title": "vox machina",
+  "creator": "pinco pallo",
+  "seasons": 2,
+  "isCompleted": true,
+  "upVotes": 11,
+  "downVotes": 7,
+  "imageUrl": "./assets/La_leggenda_di_Vox_Machina.jpg",
+  "id": "3",
+  "increaseUpvote": 11,
+  "increaseDownvote": 7
+ },
+ {
+  "title": "mare fuori",
+  "creator": "Ivan Silvestrini",
+  "seasons": 3,
+  "isCompleted": false,
+  "upVotes": 99,
+  "downVotes": 35,
+  "imageUrl": "./assets/mare_fuori.jpg",
+  "id": "4",
+  "increaseUpvote": 99
+ },
+ {
+  "title": "tredici",
+  "creator": "Marco Arata",
+  "seasons": 2,
+  "isCompleted": true,
+  "upVotes": 49,
+  "downVotes": 25,
+  "imageUrl": "./assets/tredici.jpg",
+  "id": "5",
+  "increaseUpvote": 49,
+  "increaseDownvote": 25
+ },
+ {
+  "title": "game of thrones",
+  "creator": "David Benioff, D B Weiss",
+  "seasons": 8,
+  "isCompleted": true,
+  "upVotes": 77,
+  "downVotes": 43,
+  "imageUrl": "./assets/gameofthrones.jpg",
+  "id": "6",
+  "increaseUpvote": 77,
+  "increaseDownvote": 43
+ },
+ {
+  "title": "Mamma Mia",
+  "creator": "let me go",
+  "seasons": 1,
+  "isCompleted": false,
+  "upVotes": 11,
+  "downVotes": 7,
+  "imageUrl": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQrf1yG9vz3LvUwwasF2sDW1VJDZms6zcpLA7g9uizaErsVt5_C",
+  "id": "7",
+  "increaseUpvote": 11,
+  "increaseDownvote": 7
+ },
+ {
+  "title": "La ruota del tempo",
+  "creator": "amazon prime",
+  "seasons": "3",
+  "isCompleted": true,
+  "upVotes": 1,
+  "downVotes": 1,
+  "imageUrl": "https://support.mondadoristore.it/in/speciali/fantasticstore/ruota/locandina.jpg",
+  "id": "9",
+  "increaseUpvote": 1,
+  "increaseDownvote": 1
+ }
+] -->
