@@ -16,7 +16,7 @@ body{
     width: auto;
 }
 
-.menu{
+.menu, .save{
     margin: 5px;
     font-family: 'Roboto', sans-serif;
     font-weight: bolder;
@@ -50,7 +50,9 @@ body{
 .button-container{
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: left;    
+    gap: 32px;
+  
 }
 
 .collection-list{
@@ -91,7 +93,7 @@ span{
     color: aliceblue;
 }
 
-button-container{
-    gap: 32px;
-    display: flex;
+.loading-cat{
+    height: 150px;
+    display: none;
 }

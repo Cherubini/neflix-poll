@@ -1,9 +1,13 @@
 let superCollection = new Collection();
 
-
+startLoading();
 DataService.getSeries().then(data => {
     fillFilmArrayFromServer(data);
     displayCollection();
+    stopLoading();
+}).catch(err => {
+    displayErrorMessage('accidenti si è verificato un errore')
+    stopLoading();
 })
 
 function fillFilmArrayFromServer(data) {
@@ -113,16 +117,30 @@ function createButtonVote(superCollection, serie, tag) {
     btnUpvote.addEventListener('click', (event)=>  
         {
         superCollection.increaseUpvote(serie);
-        DataService.putSerie(serie).then(updatedSerie =>{
+        startLoading();
+        DataService.putSerie(serie)
+        .then(updatedSerie =>{
             displayCollection();
+            stopLoading();
+        })
+        .catch(err => {
+            displayErrorMessage('non si può upvotare ora')
+            stopLoading();
         })
         });
 
     btnDownvote.addEventListener('click', (event)=>  
         {
         superCollection.increaseDownvote(serie);
-        DataService.putSerie(serie).then(updatedSerie =>{
+        startLoading();
+        DataService.putSerie(serie)
+        .then(updatedSerie =>{
             displayCollection();
+        stopLoading();
+        })
+        .catch(err => {
+            displayErrorMessage('non si può downvotare ora')
+            stopLoading();
         })
         });
 
@@ -170,35 +188,86 @@ function createInfo(serie) {
     return spanInfo;
 }
 
-console.log('esercizio, id riunioni meet');
+function saveNewSerie() {
+    const titleInput = document.getElementById('title-input');
+    const creatorInput = document.getElementById('creator-input');
 
-let meetId = /[a-z]{3}-[a-z]{4}-[a-z]{3}/;
-testRegex(meetId, 'ikz-tjrf-igh'); //true
-testRegex(meetId, 'mmf-tire-sgm'); //true
-testRegex(meetId, 'mmf-aaaaaa-sgmaa'); //false
-testRegex(meetId, '___mmf-tire-sgm'); //true
-testRegex(meetId, 'm_f-tire-sgm'); //false
+    const newSerieTitle = titleInput.value;
+    const newSerieCreator = creatorInput.value;
 
-function testRegex(pattern, string) {
-    console.log("testing string '" + string + "': " + pattern.test(string));
+    const newSerie = new Serie(newSerieTitle, newSerieCreator);
+
+    startLoading();
+    DataService.postSerie(newSerie).then(savedSerie => {
+        newSerie.id = savedSerie.id;
+        superCollection.addSerie(newSerie);
+        displayCollection();
+        stopLoading();
+    }).catch(err=> displayErrorMessage('non si può aggiungere al momento'))
+    
+    
+    // superCollection.addSerie(newSerie);
+    // displayCollection();
 }
 
-console.log('riconoscere la data \n\n');
-let datePattern = /^\d{1,2}\/\d{1,2}\/\d+( [ad]\.c\.)?$/
-testRegex(datePattern, '10/3/2023'); //true
-testRegex(datePattern, '11/10/1992'); //true
-testRegex(datePattern, '5/5/1800 a.c.'); //true
-testRegex(datePattern, '10-03-2002 d.c'); //false
-testRegex(datePattern, '500/10/10000 a.c'); //true (pattern presente da qualche parte all'interno della stringa)
+function displayErrorMessage(error) {
+    const errorMessage = document.getElementById('error-message')
+    const errorNode = error;
 
-console.log('esercizio: riconoscere un dominio \n\n');
-let domainPattern=/^[a-zA-Z][\w\-]*(\.[a-zA-Z]+)*(:\d+)?$/
-testRegex(domainPattern, 'google.com'); //true
-testRegex(domainPattern, 'localhost:8080'); //true
-testRegex(domainPattern, 'english-.site.co.uk:21'); //true
-testRegex(domainPattern, 'localhost:'); //false
-testRegex(domainPattern, 'personal-home-page.it'); //true
-testRegex(domainPattern, '.page.it'); //false
-testRegex(domainPattern, 'www.my-life-sucks.it'); //false
+    errorMessage.appendChild(errorNode);
+}
+
+
+function startLoading() {
+    const loadingIcon = document.getElementById('loading-icon');
+    loadingIcon.style.display='inline-block'
+}
+
+function stopLoading() {
+    const loadingIcon = document.getElementById('loading-icon');
+    loadingIcon.style.display='none'
+}
+
+
+
+
+
+
+
+
+
+
+
+//
+//console.log('esercizio, id riunioni meet');
+//
+//let meetId = /[a-z]{3}-[a-z]{4}-[a-z]{3}/;
+//testRegex(meetId, 'ikz-tjrf-igh'); //true
+//testRegex(meetId, 'mmf-tire-sgm'); //true
+//testRegex(meetId, 'mmf-aaaaaa-sgmaa'); //false
+//testRegex(meetId, '___mmf-tire-sgm'); //true
+//testRegex(meetId, 'm_f-tire-sgm'); //false
+//
+//function testRegex(pattern, string) {
+//    console.log("testing string '" + string + "': " + pattern.test(string));
+//}
+//
+//console.log('riconoscere la data \n\n');
+//let datePattern = /^\d{1,2}\/\d{1,2}\/\d+( [ad]\.c\.)?$/
+//testRegex(datePattern, '10/3/2023'); //true
+//testRegex(datePattern, '11/10/1992'); //true
+//testRegex(datePattern, '5/5/1800 a.c.'); //true
+//testRegex(datePattern, '10-03-2002 d.c'); //false
+//testRegex(datePattern, '500/10/10000 a.c'); //true (pattern presente da qualche parte all'interno della stringa)
+//
+//console.log('esercizio: riconoscere un dominio \n\n');
+//let domainPattern=/^[a-zA-Z][\w\-]*(\.[a-zA-Z]+)*(:\d+)?$/
+//testRegex(domainPattern, 'google.com'); //true
+//testRegex(domainPattern, 'localhost:8080'); //true
+//testRegex(domainPattern, 'english-.site.co.uk:21'); //true
+//testRegex(domainPattern, 'localhost:'); //false
+//testRegex(domainPattern, 'personal-home-page.it'); //true
+//testRegex(domainPattern, '.page.it'); //false
+//testRegex(domainPattern, 'www.my-life-sucks.it'); //false
 
 

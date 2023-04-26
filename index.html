@@ -8,20 +8,31 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <img src="./assets/netflix_logo.png" alt="">
+    
+    <h1>Netflix Poll
+        <img src="./assets/netflix_logo.png" alt="">
+        <img id="loading-icon" class="loading-cat" src="./assets/loadingCat.gif" alt="">
+    </h1>
     <div class="button-container">
         <button id="order-title-btn" class="menu"></button>
         <button id="order-downvote-btn" class="menu"></button>
         <button id="order-upvote-btn" class="menu"></button>
         <button id="order-best-btn" class="menu"></button>
     </div>
+    <p id="error-message"></p>
 
     <div class="collection-container">
         <div id="collection-list">
             
         </div>
     </div>
-    
+    <div>
+        <span>insert Title</span>
+        <input type="text" name="" id="title-input">
+        <span>insert Creator</span>
+        <input type="text" name="" id="creator-input">
+        <button class="save" onclick="saveNewSerie()">Save</button>
+    </div>
     
 </body>
 <script src="./services/data-service.js"></script>
