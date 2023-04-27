@@ -32,7 +32,7 @@ function displayCollectionBrutta() {
                 <div>
                     <span class="serie-title">${serie.getTitle}</span>
                     <div>
-                        <span>Created by ${serie.getCreator}</span>
+                        <span>Created by  ${serie.getCreator}</span>
                         <span>Seasons: ${serie.getSeasons}</span>
                     </div>
                 </div>
@@ -199,10 +199,10 @@ function saveNewSerie() {
     const newSerieCreator = creatorInput.value;
     const newSerieSeasons = seasonsInput.value;
     const newSerieCompleted = isCompletedInput.checked;
-    const newSerieurlImage = urlImageInput.value;
+    const newSerieUrlImage = urlImageInput.value;
 
 
-    const newSerie = new Serie(newSerieTitle, newSerieCreator,newSerieSeasons,newSerieCompleted, 0, 0,newSerieurlImage);
+    const newSerie = new Serie(newSerieTitle, newSerieCreator,newSerieSeasons,newSerieCompleted, 0, 0,newSerieUrlImage);
 
     startLoading();
     DataService.postSerie(newSerie).then(savedSerie => {
